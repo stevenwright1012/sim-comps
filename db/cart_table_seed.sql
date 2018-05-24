@@ -1,0 +1,5 @@
+CREATE TABLE cart(
+id SERIAL PRIMARY KEY,
+product_id INT REFERENCES products(id),
+qty INT DEFAULT 0
+)
