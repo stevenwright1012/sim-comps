@@ -2,14 +2,14 @@ module.exports={
     getDogs: (req, res) => {
         const db = req.app.get('db');
 
-        db.get_all([]).then(products => {
+        db.get_all_doggies([]).then(products => {
             res.status(200).send(products)
         })
     },
     getWishlist: (req, res) => {
         const db = req.app.get('db');
 
-        db.get_cart([]).then(wishlist => {
+        db.get_wishlist([]).then(wishlist => {
             res.status(200).send(wishlist)
         })
     },
@@ -27,7 +27,7 @@ module.exports={
     addToWishlist: (req, res) => {
         const db = req.app.get('db');
 
-        db.add_to_cart([req.params.id]).then(result => {
+        db.add_to_wishlist([req.params.id]).then(result => {
             console.log(result);
             
             res.status(200).send(result)
