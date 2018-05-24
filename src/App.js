@@ -2,19 +2,35 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {connect} from 'react-redux';
-import {getDoggies} from './ducks/reducer';
+import {getDoggies, getWishlist, updateDoggies} from './ducks/reducer';
 import Card from './Card'
+import axios from 'axios'
 
 class App extends Component {
   constructor(){
     super();
 
     this.state ={
-      pups: []
+      input: ""
     }
   }
   componentDidMount(){
     this.props.getDoggies();
+    this.props.getWishlist();
+  }
+  
+  handleInput(e){
+    this.setState({
+      input: e
+    })
+  }
+  search(){
+    console.log('click');
+    
+    axios.get(`/api/search?dog=${this.state.input}`).then(res => {
+      
+      this.props.updateDoggies(res.data)
+    })
   }
   render() {
     let list =  this.props.doggies.map((item, i) => {
@@ -28,6 +44,8 @@ class App extends Component {
       legs={legs}
       />
     })
+    // console.log(this.props.doggies);
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -36,7 +54,10 @@ class App extends Component {
         </header>
         <div className="products" >
           {list}
+          {JSON.stringify(this.props.wishlist)}
         </div>
+          <input type="text" placeholder="Search by name" onChange={(e) => this.handleInput(e.target.value)}/>
+          <button onClick={() => this.search()}>Search</button>
       </div>
     );
   }
@@ -44,8 +65,9 @@ class App extends Component {
 
 function mapStateToProps(state){
   return{
-    doggies: state.doggies
+    doggies: state.doggies,
+    wishlist: state.wishlist,
   }
 }
 
-export default connect(mapStateToProps, {getDoggies})(App);
+export default connect(mapStateToProps, {getDoggies, getWishlist, updateDoggies})(App);

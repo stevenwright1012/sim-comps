@@ -4,4 +4,6 @@ Where not exists(Select * from cart where product_id = $1);
 
 update cart
 set qty = qty + 1
-where product_id = $1
+where product_id = $1;
+
+select * from cart;

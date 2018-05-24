@@ -29,7 +29,7 @@
 
 .products{
   position: absolute;
-  top: 190px;;
+  top: 200px;;
   display: flex;
 flex-direction: row;
 flex-wrap: wrap;
