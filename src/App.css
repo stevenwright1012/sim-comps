@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite .2s linear;
   height: 80px;
 }
 
@@ -55,4 +55,35 @@ align-items: stretch;
 }
 .product_card h1{
   height: 72px;
+}
+.wishes{
+  position: relative;
+  top: 1400px;
+}
+
+.cart_row{
+  margin: 20px;
+  border: 2px solid black;
+  height: 100px;;
+}
+
+.cart_row img{
+  height: 100%;
+  float: left;
+  width: 100px;
+}
+.cart_row p{
+  display: inline-block;
+  margin: 20px;
+  margin-top: 35px;
+}
+.cart_row input{
+  width: 50px;
+}
+.remove_btn{
+  height: 50px;
+  width: 150px;
+  white-space: normal;
+  float: right;
+  margin: 25px 10px 0 0;
 }

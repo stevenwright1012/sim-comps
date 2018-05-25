@@ -1,1 +1,1 @@
-Select * from products;
+Select * from doggies;

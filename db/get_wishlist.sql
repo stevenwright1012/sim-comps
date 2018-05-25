@@ -1,2 +1,2 @@
-select c.id, product_id, qty, p.name, price, img_url from cart c
-join products p on c.product_id = p.id
+select w.id, doggie_id, qty, d.name, price, img_url, energy from wishlist w
+join doggies d on w.doggie_id = d.id

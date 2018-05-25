@@ -19,6 +19,8 @@ export default function reducer(state = initailState, action){
         case UPDATE_DOGGIES:
             return Object.assign({}, state, {doggies: action.payload})  
         case UPDATE_WISHLIST:
+            console.log(action.payload);
+            
             return Object.assign({}, state, {wishlist: action.payload})      
         default:
             return state;
@@ -49,7 +51,7 @@ export function getWishlist(){
 }
 
 export function updateDoggies(dog){
-    console.log(dog);
+    // console.log(dog);
     
     return {
         type: UPDATE_DOGGIES,
@@ -60,7 +62,7 @@ export function updateWishlist(list){
     console.log(list);
     
     return{
-    type: UPDATE_WISHLIST,
-    paylaod: list
+        type: UPDATE_WISHLIST,
+        payload: list
     }
 }

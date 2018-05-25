@@ -1,4 +1,4 @@
-CREATE TABLE products(
+CREATE TABLE doggies(
     id SERIAL PRIMARY KEY,
     name VARCHAR(80),
     price DECIMAL,

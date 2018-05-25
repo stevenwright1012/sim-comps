@@ -4,7 +4,10 @@ import './App.css';
 import {connect} from 'react-redux';
 import {getDoggies, getWishlist, updateDoggies} from './ducks/reducer';
 import Card from './Card'
-import axios from 'axios'
+import axios from 'axios';
+import Wish from './Wish';
+import {Switch, Link} from 'react-router-dom';
+
 
 class App extends Component {
   constructor(){
@@ -45,20 +48,20 @@ class App extends Component {
       />
     })
     // console.log(this.props.doggies);
-    
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+      <input type="text" placeholder="Search by name" onChange={(e) => this.handleInput(e.target.value)}/>
+      <button onClick={() => this.search()}>Search</button>
         <div className="products" >
           {list}
-          {JSON.stringify(this.props.wishlist)}
         </div>
-          <input type="text" placeholder="Search by name" onChange={(e) => this.handleInput(e.target.value)}/>
-          <button onClick={() => this.search()}>Search</button>
-      </div>
+        <Wish 
+        wishlist={this.props.wishlist}/>
+    </div>
     );
   }
 }

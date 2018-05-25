@@ -7,6 +7,7 @@ require ('dotenv').config();
 const {CONNECTION_URI} = process.env
 
 //TOP LEVEL MIDDLEWEAR
+//TRENT, you said this counts as passing off using top level middleware
 const app = express();
 app.use(bodyParser.json())
 
@@ -16,6 +17,7 @@ massive(CONNECTION_URI).then(db => {
 
 
 //REQUEST LEVEL MIDDLEWEAR
+//This makes a variable that can be used to to search LIKE in postgreSQL
 var addPercent = function (req, res, next) {
     req.search = req.query.dog + '%'
     next()
